@@ -10,8 +10,8 @@ export enum AppRoutes {
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
-  [AppRoutes.POKEMON_DETAILS]: "eclipse-test-task/:name",
-  [AppRoutes.POKEMON_LIST]: "eclipse-test-task",
+  [AppRoutes.POKEMON_DETAILS]: "/:name",
+  [AppRoutes.POKEMON_LIST]: "/",
   [AppRoutes.DEFAULT]: "*",
 };
 
