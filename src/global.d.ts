@@ -5,6 +5,8 @@ declare module "*.module.scss";
 declare module "@mui/material/styles/createPalette" {
   interface Palette {
     types: {
+      bug?: string;
+      dark?: string;
       fire?: string;
       grass?: string;
       electric?: string;
@@ -13,16 +15,20 @@ declare module "@mui/material/styles/createPalette" {
       rock?: string;
       fairy?: string;
       poison?: string;
-      bug?: string;
       dragon?: string;
       psychic?: string;
       flying?: string;
       fighting?: string;
       normal?: string;
+      ghost?: string;
+      ice?: string;
+      steel?: string;
     };
   }
   interface PaletteOptions {
     types: {
+      bug?: string;
+      dark?: string;
       fire?: string;
       grass?: string;
       electric?: string;
@@ -31,12 +37,14 @@ declare module "@mui/material/styles/createPalette" {
       rock?: string;
       fairy?: string;
       poison?: string;
-      bug?: string;
       dragon?: string;
       psychic?: string;
       flying?: string;
       fighting?: string;
       normal?: string;
+      ghost?: string;
+      ice?: string;
+      steel?: string;
     };
   }
 }

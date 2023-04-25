@@ -40,7 +40,6 @@ const SearchPokemon: FC = () => {
       getOptionLabel={(option) => option.name}
       onChange={(e, value) => {
         search(value?.name);
-        console.log(value?.name);
       }}
       options={pokemons}
       loading={loading}

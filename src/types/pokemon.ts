@@ -33,12 +33,13 @@ export interface PokemonType {
 export interface PokemonExtended {
   abilities: PokemonAbility[];
   height: number;
+  weight: number;
   id: number;
   name: string;
   species: PokemonSpecies;
   sprites: {
     other: {
-      dream_world: {
+      "official-artwork": {
         front_default: string;
       };
     };

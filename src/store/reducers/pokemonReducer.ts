@@ -24,7 +24,6 @@ export const pokemonReducer = (
         isLoading: true,
       };
     case PokemonActionTypes.GET_ALL_POKEMONS_SUCCESS:
-      console.log("payload", action.payload);
       return {
         isLoading: false,
         error: null,

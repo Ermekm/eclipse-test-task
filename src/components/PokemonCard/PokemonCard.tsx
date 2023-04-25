@@ -1,17 +1,12 @@
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Chip,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Card, CardContent, CardMedia, Stack, Typography } from "@mui/material";
 import { type FC } from "react";
 import { type PokemonExtended } from "../../types/pokemon";
 import IconSword from "../../assets/icons/swords.svg";
 import IconHeart from "../../assets/icons/heart.svg";
 import IconShield from "../../assets/icons/shield.svg";
 import { useNavigate } from "react-router-dom";
+import TypeChips from "../TypeChips";
+import { getImg } from "../../utils/getImg";
 
 interface PokemonCardProps {
   pokemon: PokemonExtended;
@@ -25,10 +20,10 @@ const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
   };
 
   return (
-    <Card onClick={navigateToPokemon}>
+    <Card onClick={navigateToPokemon} sx={{ backgroundColor: "#f1f5ff" }}>
       <CardMedia
         component="img"
-        image={pokemon.sprites.other.dream_world.front_default}
+        image={getImg(pokemon.sprites.other["official-artwork"].front_default)}
         sx={{
           padding: "1em 1em 0 1em",
           objectFit: "contain",
@@ -44,14 +39,8 @@ const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
         >
           {pokemon.name}
         </Typography>
-        <Stack direction="row" spacing={1} justifyContent="center">
-          {pokemon.types.map((type) => (
-            <Chip
-              label={type.type.name}
-              sx={{ backgroundColor: "types." + type.type.name }}
-              key={type.type.name}
-            />
-          ))}
+        <Stack direction="row" justifyContent="center">
+          <TypeChips types={pokemon.types} />
         </Stack>
         <Stack
           direction="row"

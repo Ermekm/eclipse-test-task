@@ -15,7 +15,6 @@ import TypeService from "../../services/TypeService";
 async function shortPokemonToExtendedPokemon(
   pokemonsShort: PokemonShort[]
 ): Promise<PokemonExtended[]> {
-  console.log("pokemon short", pokemonsShort);
   const PokemonExtendedList = await Promise.all(
     pokemonsShort.map(async (pokemonShort: PokemonShort) => {
       const pokemonExtendedItemReponse = await PokemonService.getOneByUrl(
@@ -67,7 +66,6 @@ export const getByTag = (types: IUrl[]): any => {
           return response.data.pokemon;
         })
       );
-      console.log(responses.flat());
       const pokemonShortList = responses
         .flat()
         .map((el) => el.pokemon)

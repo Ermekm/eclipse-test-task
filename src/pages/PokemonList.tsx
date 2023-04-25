@@ -21,7 +21,7 @@ const PokemonList: FC = () => {
     (state) => state.pokemons
   );
   const [page, setPage] = useState<number>(0);
-  const [limit, setLimit] = useState<number>(10);
+  const [limit, setLimit] = useState<number>(25);
 
   useEffect(() => {
     dispatch(getAllPokemons(limit, limit * page));
@@ -29,7 +29,7 @@ const PokemonList: FC = () => {
 
   return (
     <>
-      <AppBar sx={{ p: 1 }}>
+      <AppBar sx={{ p: 1, backgroundColor: "#E3F0FF" }}>
         <Container>
           <Toolbar sx={{ justifyContent: "space-between" }}>
             <SearchPokemon />
@@ -37,37 +37,37 @@ const PokemonList: FC = () => {
           </Toolbar>
         </Container>
       </AppBar>
-      <Container>
-        {isLoading ? (
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-            }}
-          >
-            <CircularProgress />
-          </Box>
-        ) : (
-          <Grid container spacing={2} sx={{ mt: 12 }}>
-            {pokemons.map((pokemon) => (
-              <Grid item xs={12} sm={3} lg={2} key={pokemon.name}>
-                <PokemonCard pokemon={pokemon} />
-              </Grid>
-            ))}
-          </Grid>
-        )}
-        <AppPagination
-          count={count}
-          page={page}
-          setPage={setPage}
-          limit={limit}
-          setLimit={setLimit}
-        />
-      </Container>
+      {isLoading ? (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            position: "absolute",
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0,
+          }}
+        >
+          <CircularProgress />
+        </Box>
+      ) : (
+        <Grid container spacing={2} sx={{ mt: 12 }}>
+          {pokemons.map((pokemon) => (
+            <Grid item xs={12} sm={4} md={3} lg={2} key={pokemon.name}>
+              <PokemonCard pokemon={pokemon} />
+            </Grid>
+          ))}
+        </Grid>
+      )}
+      <AppPagination
+        count={count}
+        page={page}
+        setPage={setPage}
+        limit={limit}
+        setLimit={setLimit}
+      />
     </>
   );
 };
