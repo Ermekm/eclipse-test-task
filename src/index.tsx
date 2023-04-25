@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 
 ReactDOMClient.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/eclipse-test-task">
     <Provider store={store}>
       <App />
     </Provider>

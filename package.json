@@ -1,10 +1,13 @@
 {
+  "homepage": "https://ermekm.github.io/eclipse-test-task/",
   "name": "eclipse-test-task",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "npx webpack serve --env port=3000",
+    "predeploy": "npm run build:prod",
+    "deploy": "gh-pages -d build",
     "build:prod": "npx webpack --env mode=production",
     "build:dev": "npx webpack --env mode=development",
     "lint:ts": "npx eslint '**.*.{ts,tsx}'",
@@ -28,6 +31,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
+    "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.1",
     "mini-css-extract-plugin": "^2.7.5",
     "prettier": "2.8.7",
